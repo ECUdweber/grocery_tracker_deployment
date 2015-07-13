@@ -1,5 +1,4 @@
 <div class="container">
-
 	<p>My todos</p>
 	
 	<form ng-submit="addToDo()">
@@ -23,5 +22,4 @@
 			</span>	
 		</p>
 	</div>
-	
 </div>
