@@ -32,7 +32,8 @@
     "phantomjs": "~1.9.17",
     "karma-phantomjs-launcher": "~0.2.0",
     "jasmine-core": "~2.3.4",
-    "karma-jasmine": "~0.3.6"
+    "karma-jasmine": "~0.3.6",
+    "grunt-build-control": "~0.5.0"
   },
   "engines": {
     "node": ">=0.10.0"
