@@ -398,7 +398,7 @@ module.exports = function (grunt) {
 	    pages: {
 	      options: {
 	        remote: 'git@github.com:ECUdweber/grocery_tracker_deployment.git',
-	        branch: 'master'
+	        branch: 'gh-pages'
 	      }
 	    },
 	    local: {
