@@ -2,11 +2,6 @@
 
 angular.module('angularGroceryTrackerApp')
   .controller('MainCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
     
     $scope.addToDo = function() {
     	$scope.todos.push($scope.todo);
@@ -17,5 +12,10 @@ angular.module('angularGroceryTrackerApp')
     	$scope.todos.splice(index, 1);
     };
     
-    $scope.todos = [];
+    $scope.shoppingLists = [
+		{id:0, name: 'Normal Weekly List', use_count: 23},
+		{id:1, name: 'Dog Food', use_count: 2},
+		{id:2, name: 'Chicken Dinner', use_count: 3},
+		{id:3, name: 'Taco Dinner', use_count: 1}    
+    ];
   });

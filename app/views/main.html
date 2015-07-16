@@ -1,27 +1,37 @@
-<div class="container">
+<style>
 
-	<p>My todos</p>
+table.bordered {
+	width:95%;
+}
+
+.centered { text-align: center; }
+
+.bordered td {
+	border:1px solid #EEEEEE;
+	padding:5px;
+}
+
+</style>
+
+<div class="container">
 	
-	<form ng-submit="addToDo()">
-		<div class="row">
-			<div class="input-group">
-				<input type="text" ng-model="todo" placeholder="What needs to be done?" class="form-control">
-				<span class="input-group-btn">
-					<input type="submit" class="btn btn-primary" value="Add">				
-				</span> 			
-			</div>
-		</div>
-	</form>	
+	<b>What will you be shopping for? Choose one:</b>
+	<br />
+	<a class="btn" ng-href="#/create-shopping-list">Create a New List</a>
 	
 	<br />
 	
-	<div ui-sortable ng-model="todos">
-		<p class="input-group" ng-repeat="todo in todos" style="padding:5px;10px;cursor:move;">
-			<input type="text" ng-model="todo" class="form-control">
-			<span class="input-group-btn">
-				<button class="btn btn-danger" ng-click="removeToDo($index)" aria-label="Remove">X</button>
-			</span>	
-		</p>
-	</div>
+	<table class="bordered">
+		<tr>
+			<th>Name</th>
+			<th class="centered">Usage</th>
+			<th>&nbsp;</th>		
+		</tr>
+		<tr ng-repeat="list in shoppingLists | orderBy: '-use_count' ">
+			<td>{{list.name}}</td>
+			<td class="centered">{{list.use_count}}</td>
+			<td class="centered"><a ng-href="#/manage-list/{{list.id}}" aria-label="Detail">View</a></td>
+		</tr>	
+	</table>
 	
 </div>

@@ -1,0 +1,38 @@
+<h3>{{listName}}</h3>
+
+<form ng-submit="doNothing()">
+	<div class="row">
+		<div class="input-group">
+			<input type="text" ng-model="listName" class="form-control">		
+		</div>
+	</div>
+	<div class="row">
+		<h3>Add Items to this list</h3>
+	</div>
+	<div class="row">
+		<div class="input-group">
+			<input type="text" ng-model="item" placeholder="What item to add?" class="form-control">
+			<span class="input-group-btn">
+				<button ng-click="addItem()" class="btn btn-primary">Add</button>				
+			</span> 			
+		</div>
+	</div>
+	<div class="row">
+		<div ui-sortable ng-model="listItems">
+			<p class="input-group" ng-repeat="item in listItems" style="padding:5px;10px;cursor:move;">
+				<input type="text" ng-model="item" class="form-control">
+				<span class="input-group-btn">
+					<button class="btn btn-danger" ng-click="removeItem($index)" aria-label="Remove">X</button>				
+				</span>	
+			</p>
+		</div>
+	</div>
+	<br />	
+	<div class="row">
+		<div class="input-group">
+			<span class="input-group-btn">
+				<button class="btn btn-danger" ng-click="saveList()" aria-label="Save">Save List</button>				
+			</span> 			
+		</div>
+	</div>	
+</form>	

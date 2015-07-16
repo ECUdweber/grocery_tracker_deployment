@@ -9,7 +9,7 @@
 
 module.exports = function (grunt) {
 
-  var pkg = require('./package.json');
+  //var pkg = require('./package.json');
 
   // Load grunt tasks automatically
   require('load-grunt-tasks')(grunt);
@@ -398,7 +398,7 @@ module.exports = function (grunt) {
 	    pages: {
 	      options: {
 	        remote: 'git@github.com:ECUdweber/grocery_tracker_deployment.git',
-	        branch: 'master'
+	        branch: 'gh-pages'
 	      }
 	    },
 	    local: {
