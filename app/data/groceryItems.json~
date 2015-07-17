@@ -1,0 +1,5 @@
+{"name": "Eggs", "price": "1.99", "id":"0"},
+{"name": "Bread", "price": "2.99", "id":"1"},
+{"name": "Ground Beef", "price": "5.23", "id":"2"},
+{"name": "Cookie Crisp", "price": "4.50", "id":"3"},
+{"name": "Milk", "price": "3.49", "id":"4"}

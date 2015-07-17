@@ -1,0 +1,39 @@
+<style>
+
+table.bordered {
+	width:95%;
+}
+
+.centered { text-align: center; }
+
+.bordered td {
+	border:1px solid #EEEEEE;
+	padding:5px;
+}
+
+</style>
+
+<div class="container">
+	
+	<b>What will you be shopping for? Choose one:</b>
+	<br />
+	<a class="btn" ng-href="#/create-shopping-list">Create a New List</a>
+	
+	<br />
+	
+	<table class="bordered">
+		<tr>
+			<th>Name</th>
+			<th class="centered">Usage</th>
+			<th colspan="2">&nbsp;</th>		
+		</tr>
+		<tr ng-repeat="list in shoppingLists | orderBy: '-use_count' ">
+			<td>{{list.name}}</td>
+			<td class="centered">{{list.use_count}}</td>
+			<!--<td class="centered"><a ng-href="#/manage-list/{{list._id}}" aria-label="Detail">Edit</a></td>-->
+			<td class="centered"><button ng-click="editList(list._id)" class="btn btn-warning">Edit</button></td>
+			<td class="centered"><button ng-click="removeList(list._id)" class="btn btn-danger">Remove</button></td>
+		</tr>	
+	</table>
+	
+</div>
