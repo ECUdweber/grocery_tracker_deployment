@@ -16,6 +16,7 @@ describe('Controller: MainCtrl', function () {
     });
   }));
 
+/*
   it('should have no items to start', function () {
     expect(scope.todos.length).toBe(0);
   });
@@ -32,5 +33,6 @@ describe('Controller: MainCtrl', function () {
   	 scope.removeToDo(0);
     expect(scope.todos.length).toBe(0);
   });   
+  */
   
 });

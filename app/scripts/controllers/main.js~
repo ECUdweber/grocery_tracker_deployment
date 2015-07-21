@@ -26,7 +26,7 @@ angular.module('angularGroceryTrackerApp')
     };
     
     $scope.editList = function (id) {    	
-	   $location.path("#/manage-list/" + id);
+	   $location.path("/manage-list/" + id);
     };            
     
     $scope.refresh();    

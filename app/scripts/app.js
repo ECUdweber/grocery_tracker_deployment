@@ -36,6 +36,14 @@ angular
         templateUrl: 'views/manage-list.html',
         controller: 'ManageListCtrl'
       })
+      .when('/edit-grocery-item/:itemId', {
+        templateUrl: 'views/edit-grocery-item.html',
+        controller: 'EditGroceryItemCtrl'
+      })
+      .when('/use-list/:listId', {
+        templateUrl: 'views/use-list.html',
+        controller: 'UseListCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });

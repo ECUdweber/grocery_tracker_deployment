@@ -29,7 +29,8 @@ describe('Controller: MainCtrl', function () {
   it('should then remove an item from the list', function () {
   	 scope.todo = 'Test 1';
   	 scope.addToDo();
-    expect(scope.todos.length).toBe(1);
+  	 scope.removeToDo(0);
+    expect(scope.todos.length).toBe(0);
   });   
   
 });

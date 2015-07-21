@@ -20,7 +20,7 @@ angular.module('angularGroceryTrackerApp')
 		};  
 		
 		$scope.addItemToListFromDropdown = function () {
-			$scope.list.items.push(angular.toJson($scope.newItem,1));
+			$scope.list.items.push(angular.fromJson($scope.newItem,1));
 			console.log("Adding item to list from dropdown: ", $scope.newItem);
 			
 			$scope.newItem = -1;	
@@ -38,6 +38,7 @@ angular.module('angularGroceryTrackerApp')
 			// Saved this list. Send back to grocery lists list
 			$location.path("/#");
 		};	
+		
 		
 		$scope.addItemToList = function () {
 			$scope.list.items.push($scope.item);

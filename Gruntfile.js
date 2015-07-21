@@ -26,6 +26,13 @@ module.exports = function (grunt) {
   // Define the configuration for all the tasks
   grunt.initConfig({
 
+    // configure nodemon
+    nodemon: {
+      dev: {
+        script: 'server.js'
+      }
+    },
+
     // Project settings
     yeoman: appConfig,
 
@@ -303,7 +310,7 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           cwd: '<%= yeoman.dist %>',
-          src: ['*.html', 'views/{,*/}*.html'],
+          src: ['*.{html,ejs}', 'views/{,*/}*.{html,ejs}'],
           dest: '<%= yeoman.dist %>'
         }]
       }
@@ -341,7 +348,7 @@ module.exports = function (grunt) {
             '*.{ico,png,txt}',
             '.htaccess',
             '*.html',
-            'views/{,*/}*.html',
+            'views/{,*/}*.{html,ejs}',
             'images/{,*/}*.{webp}',
             'fonts/*'
           ]
@@ -462,4 +469,11 @@ module.exports = function (grunt) {
     'test',
     'build'
   ]);
+  
+  // load nodemon
+  grunt.loadNpmTasks('grunt-nodemon');
+
+  // register the nodemon task when we run grunt
+  grunt.registerTask('default', ['nodemon']);   
+  
 };

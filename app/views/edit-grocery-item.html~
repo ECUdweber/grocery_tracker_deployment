@@ -1,0 +1,10 @@
+<p>
+<b>Add new grocery item:</b><br />
+<div class="input-group" style="padding:5px;10px;">
+	<input type="text" ng-model="item.name" class="form-control" style="width:50%;float:left;">
+	<input type="text" ng-model="item.price" class="form-control" style="width:50%;float:left;">
+	<span class="input-group-btn">
+		<button ng-click="saveGroceryItem()" class="btn btn-primary">Add</button>				
+	</span> 			
+</div>
+</p>

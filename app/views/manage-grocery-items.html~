@@ -12,11 +12,10 @@
 <hr>
 
 <p class="input-group" ng-repeat="item in items | orderBy: 'name' " style="padding:5px;10px;cursor:move;">
-	<input type="text" ng-model="item.name" class="form-control" style="width:50%;float:left;">
-	<input type="text" ng-model="item.price" class="form-control" style="width:50%;float:left;">
-	<span class="input-group-btn">
-		<button class="btn btn-danger" ng-click="removeItem($index)" aria-label="Remove">X</button>				
-	</span>	
+	<input type="text" ng-model="item.name" class="form-control" style="width:45%;float:left;">
+	<input type="text" ng-model="item.price" class="form-control" style="width:45%;float:left;">
+	<span class="input-group-btn"><button ng-click="editItem(list._id)" class="btn btn-warning">Edit</button></span>
+	<span class="input-group-btn"><button class="btn btn-danger" ng-click="deleteItem(item._id)" aria-label="Remove">Remove</button></span>	
 </p>
 
 <br />

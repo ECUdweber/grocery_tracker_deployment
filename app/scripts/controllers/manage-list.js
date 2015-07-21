@@ -39,8 +39,10 @@ angular.module('angularGroceryTrackerApp')
 			$location.path("/#");
 		};	
 		
+		
 		$scope.addItemToList = function () {
 			$scope.list.items.push($scope.item);
+			$http.post('/items', $scope.item);
 			$scope.item = {};	
 		};
 		

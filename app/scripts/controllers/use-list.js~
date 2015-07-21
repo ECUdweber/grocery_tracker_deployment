@@ -1,0 +1,35 @@
+'use strict';
+
+angular.module('angularGroceryTrackerApp')
+  .controller('UseListCtrl', function ($scope, $location, $routeParams, $http) {
+      $scope.list = {};
+  		$scope.listId = $routeParams.listId;  		
+  		
+	   $scope.refresh = function () {
+			$http.get('/shoppinglists/' +  $scope.listId).success(function (response) {    	
+				$scope.list = response;
+				
+				$scope.list.usage++;
+				
+				$scope.total = _(response.items)
+					.chain()
+					.map(function(item) {
+						return item.price - 0;
+					})
+					.reduce(function(memo, num) {
+						return memo + num;	
+					}, 0)
+					.value();
+					
+				$http.put('/shoppinglists/' + $scope.listId, $scope.list);				
+			});					   	
+	   };
+	   
+	   $scope.sendLink = function () {
+			//	   
+		};
+		
+	   $scope.listTotal = 33;
+	   
+	   $scope.refresh();  		
+  });

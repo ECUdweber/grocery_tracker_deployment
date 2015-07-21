@@ -1,29 +1,30 @@
-<p>This is the manage-list view. This will allow you to edit a grocery list. Add/Remove or rename the list.</p>
-
-List.Items
-<pre>
-	{{list.items | json}}
-</pre>
-
 <form name="editListForm" class="form-horizontal">
 	<div class="row">
 		<div class="input-group">
-			<input type="text" ng-model="list.name" class="form-control">		
+			<input type="text" placeholder="List Name" ng-model="list.name" class="form-control">		
 		</div>
 	</div>
 	<div class="row">
 		<h3>Edit Items in this List</h3>
 	</div>
 	<div class="row">
-		<div class="input-group"> 
+		<div> 
+			<div class="input-group">  
 			<select class="form-control" ng-model="newItem" ng-change="addItemToListFromDropdown()">
 				<option value="-1" ng-selected>Add Item</option>
 				<option ng-repeat="item in availableItems | orderBy: 'item.name' " value="{{item}}">{{item.name}}</option>
 			</select>
-			<br /><br />
-			<input type="text" ng-model="item.name" class="form-control" placeholder="Name of new item" style="width:45%;float:left;">
-			<input type="text" ng-model="item.price" class="form-control" placeholder="Price of new item" style="width:45%;float:left;">			
-			<span style="float:left;width:10%;" class="input-group-btn"><button ng-click="addItemToList()" class="btn btn-primary">Add</button></span> 			
+			</div>
+			<div class="form-inline input-group">
+				<br />
+				<input type="text" ng-model="item.name" class="form-control" placeholder="Name of new item" style="width:45%;float:left;">
+				<div class="input-group">
+			      <div class="input-group-addon">$</div>
+			      <input type="text" class="form-control" ng-model="item.price" placeholder="Amount">				
+				</div>
+				<!--<input type="text" ng-model="item.price" class="form-control" placeholder="Price of new item" style="width:45%;float:left;">-->			
+				<button ng-click="addItemToList()" class="btn btn-default">Add</button>
+			</div> 			
 		</div>
 	</div>	
 	<br />

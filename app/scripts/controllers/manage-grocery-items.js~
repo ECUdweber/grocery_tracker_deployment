@@ -13,7 +13,12 @@ angular.module('angularGroceryTrackerApp')
 	   };
 	   
 	   $scope.deleteItem = function (id) {
-			$http.delete('/items/' + id);		   	
+			$http.delete('/items/' + id);	
+			$scope.refresh();	   	
+	   };
+	   
+	   $scope.editItem = function (id) {
+	   	$location.path("/edit-grocery-item/" + id);   
 	   };
 	   
 	   $scope.refresh = function () {

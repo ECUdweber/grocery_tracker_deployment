@@ -1,17 +1,17 @@
 'use strict';
 
-describe('Controller: ManageListCtrl', function () {
+describe('Controller: EditGroceryItemCtrl', function () {
 
   // load the controller's module
   beforeEach(module('angularGroceryTrackerApp'));
 
-  var ManageListCtrl,
+  var EditGroceryItemCtrl,
     scope;
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope) {
     scope = $rootScope.$new();
-    ManageListCtrl = $controller('ManageListCtrl', {
+    EditGroceryItemCtrl = $controller('EditGroceryItemCtrl', {
       $scope: scope
     });
   }));

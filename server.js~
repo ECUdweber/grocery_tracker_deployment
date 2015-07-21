@@ -27,7 +27,7 @@ app.put('/items/:id', function (req, res) {
 	var id = req.params.id; 
 	
 	db.items.findAndModify({query: {_id: mongojs.ObjectId(id)},
-		update: {$set: {name:req.body.name, items:req.body.items}},
+		update: {$set: {name:req.body.name, price:req.body.price}},
 		new: true}, function (err, doc) {
 			res.json(doc);		
 		}
@@ -38,6 +38,13 @@ app.post('/items', function (req, res) {
 	db.items.insert(req.body, function (err, doc) {
 		res.json(doc);
 	});		
+});
+
+app.delete('/items/:id', function (req, res) { 
+	var id = req.params.id; 
+	db.items.remove({_id: mongojs.ObjectId(id)}, function (err, doc) {
+		res.json(doc);
+	});	
 });
 
 // END Items routes
@@ -54,16 +61,13 @@ app.get('/shoppinglists/:id', function (req, res) {
 });
 
 app.put('/shoppinglists/:id', function (req, res) {		
-	var id = req.params.id; 
-	console.log("Will update list: ", req.body);
-	
+	var id = req.params.id; 	
 	db.lists.findAndModify({query: {_id: mongojs.ObjectId(id)},
-		update: {$set: {name:req.body.name, items:req.body.items}},
+		update: {$set: {name:req.body.name, use_count:req.body.use_count, items:req.body.items}},
 		new: true}, function (err, doc) {
 			res.json(doc);		
 		}
-	);
-	
+	);	
 });
 
 app.get('/shoppinglists', function (req, res) {		
@@ -90,4 +94,4 @@ app.post('/shoppinglists', function (req, res) {
 
 app.listen(9000);
 
-console.log("Server running on port 9000");
+//console.log("Server running on port 9000");

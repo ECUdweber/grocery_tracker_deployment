@@ -1,25 +1,25 @@
 'use strict';
 
-describe('Controller: ManageListCtrl', function () {
+describe('Controller: UseListCtrl', function () {
 
   // load the controller's module
   beforeEach(module('angularGroceryTrackerApp'));
 
-  var ManageListCtrl,
+  var UseListCtrl,
     scope;
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope) {
     scope = $rootScope.$new();
-    ManageListCtrl = $controller('ManageListCtrl', {
+    UseListCtrl = $controller('UseListCtrl', {
       $scope: scope
     });
   }));
 
-/*
-  it('should attach a list of awesomeThings to the scope', function () {
-    expect(scope.awesomeThings.length).toBe(3);
+	/*
+  it('should start with an empty list', function () {
+    expect(scope.list.length).toBe(0);
   });
-*/  
+  */
   
 });

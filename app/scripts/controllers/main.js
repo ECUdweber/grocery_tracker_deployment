@@ -24,6 +24,10 @@ angular.module('angularGroceryTrackerApp')
 	    	$scope.refresh();
 	    });    	
     };
+        
+    $scope.useList = function (id) {    	
+	   $location.path("/use-list/" + id);
+    };    
     
     $scope.editList = function (id) {    	
 	   $location.path("/manage-list/" + id);

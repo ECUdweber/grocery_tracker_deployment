@@ -1,24 +1,38 @@
-<div class="container">
+<style>
+
+.vertical-middle {
+	vertical-align: middle !important;
+}
+
+</style>
+
+<div class="row">
 	
-	<b>What will you be shopping for? Choose one:</b>
-	<br />
-	<a class="btn" ng-href="#/create-shopping-list">Create a New List</a>
-	
-	<br />
-	
-	<table class="bordered">
+	<table class="table table-bordered table-striped table-hover table-responsive">
 		<tr>
 			<th>Name</th>
 			<th class="centered">Usage</th>
-			<th colspan="2">&nbsp;</th>		
+			<th>&nbsp;</th>		
 		</tr>
 		<tr ng-repeat="list in shoppingLists | orderBy: '-use_count' ">
-			<td>{{list.name}}</td>
-			<td class="centered">{{list.use_count}}</td>
-			<!--<td class="centered"><a ng-href="#/manage-list/{{list._id}}" aria-label="Detail">Edit</a></td>-->
-			<td class="centered"><button ng-click="editList(list._id)" class="btn btn-warning">Edit</button></td>
-			<td class="centered"><button ng-click="removeList(list._id)" class="btn btn-danger">Remove</button></td>
+			<td class="vertical-middle">{{list.name}}</td>
+			<td class="centered vertical-middle">{{list.use_count}}</td>
+			<td class="centered vertical-middle">
+				<button ng-click="useList(list._id)"  type="button" class="btn btn-primary">
+				  <span class="glyphicon glyphicon-star" aria-hidden="true"></span> Use
+				</button>
+				<button ng-click="editList(list._id)"  type="button" class="btn btn-warning">
+				  <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Edit
+				</button>
+				<button ng-click="removeList(list._id)"  type="button" class="btn btn-danger">
+				  <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span> Delete
+				</button>																	
+			</td>
 		</tr>	
 	</table>
+	
+	<p>
+		<a class="btn btn-default" ng-href="#/create-shopping-list" role="button">Create a New List</a>
+	</p>	
 	
 </div>
