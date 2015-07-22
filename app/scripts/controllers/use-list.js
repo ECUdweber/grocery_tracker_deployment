@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('angularGroceryTrackerApp')
-  .controller('UseListCtrl', function ($scope, $location, $routeParams, $http) {
+  .controller('UseListCtrl', function ($scope, $location, $routeParams, $http, listsFactory) {
       $scope.list = {};
   	  $scope.listId = $routeParams.listId;  	
   	  $scope.recipient = '-1';	
@@ -19,10 +19,8 @@ angular.module('angularGroceryTrackerApp')
   	  ];
   		
 	   $scope.refresh = function () {
-			$http.get('/shoppinglists/' +  $scope.listId).success(function (response) {    	
-				$scope.list = response;
-				
-				$scope.total = _(response.items)
+	   		$scope.list = listsFactory.get({id: $scope.listId}, function(data) {
+				$scope.total = _(data.items)
 					.chain()
 					.map(function(item) {
 						return item.price - 0;
@@ -30,8 +28,10 @@ angular.module('angularGroceryTrackerApp')
 					.reduce(function(memo, num) {
 						return memo + num;	
 					}, 0)
-					.value();									
-			});					   	
+					.value();	
+
+					$scope.emailInfo.list = data.items;						   			
+	   		});		   							   	
 	   };
 	   
 	   $scope.updateRecipient = function () {
@@ -43,10 +43,10 @@ angular.module('angularGroceryTrackerApp')
 		};
 
 	   $scope.sendLink = function () {
-			// Send email to contact
+			// Send email to contact			
 			$http.post('/senditems', $scope.emailInfo);	 
 			$scope.list.use_count++;  
-			$http.put('/shoppinglists/' + $scope.listId, $scope.list);				
+			listsFactory.update({id: $scope.listId}, $scope.list);
 		};	
 	   
 	   $scope.refresh();  		

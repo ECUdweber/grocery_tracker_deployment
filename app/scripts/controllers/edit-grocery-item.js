@@ -1,20 +1,18 @@
 'use strict';
 
 angular.module('angularGroceryTrackerApp')
-  .controller('EditGroceryItemCtrl', function ($scope, $location, $routeParams, $http) {
+  .controller('EditGroceryItemCtrl', function ($scope, $location, $routeParams, $http, itemsFactory) {
   		$scope.item = {};
   		$scope.itemId = $routeParams.itemId;
   	
-	   $scope.refresh = function () {
-			$http.get('/items/' +  $scope.itemId).success(function (response) {    	
-				$scope.item = response;
-			});					   	
-	   };
+	    $scope.refresh = function () {		
+			$scope.item = itemsFactory.get({id: $scope.itemId});
+	    };
 	   
 		$scope.saveGroceryItem = function () {
-			$http.put('/items/' + $scope.itemId, $scope.item);				
+			itemsFactory.update({id: $scope.itemId}, $scope.item);
 			$location.path("/manage-grocery-items");	      
-	   };
+	    };
 	   
     	$scope.refresh();
   });

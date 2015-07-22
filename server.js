@@ -162,7 +162,7 @@ app.post('/senditems', function (req, res) {
 	console.log("Contact: ", contact);
 
 	contact.test = "TEST!";
-	contact.list = [
+	contact.list2 = [
 		{name: 'Item1', price: '2.99'},
 		{name: 'Item2', price: '3.99'}
 	];

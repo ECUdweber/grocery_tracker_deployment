@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('angularGroceryTrackerApp')
-  .controller('MainCtrl', function ($scope, $location, $http) {
+  .controller('MainCtrl', function ($scope, $location, $http, listsFactory) {
 	 $scope.shoppingLists = [];    
     
     $scope.addToDo = function() {
@@ -12,17 +12,15 @@ angular.module('angularGroceryTrackerApp')
     $scope.removeToDo = function(index) {
     	$scope.todos.splice(index, 1);
     };
-    
+
     $scope.refresh = function () {
-	    $http.get('/shoppinglists').success(function (response) {    	
-	    	$scope.shoppingLists = response;
-	    });    	
- 	 };    
+        $scope.shoppingLists = listsFactory.query();
+    };       
     
-    $scope.removeList = function (id) {    	
-	    $http.delete('/shoppinglists/' + id).success(function (response) {    	
-	    	$scope.refresh();
-	    });    	
+    $scope.removeList = function (_id) {  
+        listsFactory.delete({id: _id}, function(data) {
+            $scope.refresh();
+        });
     };
         
     $scope.useList = function (id) {    	
