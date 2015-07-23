@@ -1,5 +1,4 @@
 'use strict';
-
 /**
  * @ngdoc service
  * @name angularGroceryTrackerApp.groceryFactory
