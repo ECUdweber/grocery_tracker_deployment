@@ -1,0 +1,1 @@
+This shopping list has been sent to you. <p> <a href="http://localhost:9000/#/use-list/<%= listId %>">View this list in browser</a> </p> <br> <% for(var i=0; i<list.length; i++) { %> <input type="checkbox" value=""> <%= list[i].name %> - <%= list[i].price %> <br> <% } %>
